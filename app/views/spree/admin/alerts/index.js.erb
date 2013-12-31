@@ -1,0 +1,2 @@
+$('tbody#alerts').html('<%= escape_javascript(render :partial => "spree/admin/alerts/alert", :collection => @alerts, :as => :alert) %>');
+$('#paginator').html('<%= escape_javascript(paginate(@alerts, :remote => true).to_s) %>');

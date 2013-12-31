@@ -1,0 +1,26 @@
+<% content_for :page_title do %>
+  <%= t(:gestion_alertas) %>
+<% end %>
+
+<table class="index responsive" id="alerts_listing">
+  <colgroup>
+    <col style="width: 20%;">
+    <col style="width: 20%;">
+    <col style="width: 20%;">
+    <col style="width: 20%;">
+    <col style="width: 20%;">
+  </colgroup>
+  <thead data-hook="admin_alerts_index_headers">
+    <th>Usuario</th>
+    <th>Fecha Inicio</th>
+    <th>Fecha Fin</th>
+    <th>Valor Minimo</th>
+    <th>Valor Maximo</th>
+    <th data-hook="admin_alerts_index_header_actions" class="actions">
+    </th>
+  </thead>
+  <tbody id="alerts">
+    <%= render :partial => 'spree/admin/alerts/alert', :collection => @alerts, :as => :alert %>
+  </tbody>
+</table>
+<div id="paginator"><%= paginate @alerts, :remote => true %></div>
